@@ -1,0 +1,26 @@
+---
+
+- name: ensure ucarp is installed
+  yum:
+    name=ucarp
+    state=present
+
+- name: common config
+  template:
+    src=vip-common.conf.j2
+    dest=/etc/ucarp/vip-common.conf
+  notify:
+    - svc restart ucarp
+
+- name: vip config
+  template:
+    src=vip-000.conf.j2
+    dest=/etc/ucarp/vip-{{"%03d"|format(item.id)}}.conf
+  with_items: ucarp_vips
+  notify:
+    - svc restart ucarp
+
+- name: service enable and start
+  service: name=ucarp state={{ucarp_svc_state}} enabled={{ucarp_svc_enabled}}
+
+

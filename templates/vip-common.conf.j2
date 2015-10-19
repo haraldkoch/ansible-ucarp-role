@@ -1,0 +1,8 @@
+# Common VIP settings which can be overridden in individual vip-<nnnn>.conf
+PASSWORD="{{ucarp_pw}}"
+BIND_INTERFACE="{{ucarp_if}}"
+SOURCE_ADDRESS="{{ucarp_srcaddr}}"
+
+# If you have extra options to add, see "ucarp --help" output
+OPTIONS="{% for o in ucarp_options %}--{{o}} {% endfor %}"
+

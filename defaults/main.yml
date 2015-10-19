@@ -1,0 +1,15 @@
+---
+
+ucarp_if: eth0
+ucarp_pw: supersecret
+ucarp_options:
+  - shutdown
+  - preempt
+ucarp_srcaddr: 127.0.0.1
+ucarp_vips: []
+#  - id: 1
+#    addr: 127.0.0.100
+
+ucarp_svc_enabled: Yes
+ucarp_svc_state: started
+

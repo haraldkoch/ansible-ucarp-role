@@ -1,0 +1,3 @@
+---
+- name: svc restart ucarp
+  service: name=ucarp state=restarted
