@@ -4,5 +4,5 @@ BIND_INTERFACE="{{ucarp_if}}"
 SOURCE_ADDRESS="{{ucarp_srcaddr}}"
 
 # If you have extra options to add, see "ucarp --help" output
-OPTIONS="{% for o in ucarp_options %}--{{o}} {% endfor %}"
+OPTIONS="{% for item in ucarp_options %}--{{item}}{% if not loop.last %} {% endif %}{% endfor %}"
 
