@@ -16,7 +16,7 @@
   template:
     src=vip-000.conf.j2
     dest=/etc/ucarp/vip-{{"%03d"|format(item.id)}}.conf
-  with_items: ucarp_vips
+  with_items: "{{ucarp_vips}}"
   notify:
     - svc restart ucarp
 
