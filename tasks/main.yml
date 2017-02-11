@@ -1,9 +1,17 @@
 ---
 
 - name: ensure ucarp is installed
-  yum:
+  package:
     name=ucarp
     state=present
+
+- name: config folder
+  file:
+    dest=/etc/ucarp
+    state=directory
+    owner=root
+    group=root
+    mode=0700
 
 - name: common config
   template:
